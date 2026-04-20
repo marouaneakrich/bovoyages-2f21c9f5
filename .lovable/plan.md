@@ -1,43 +1,74 @@
+# Elevate Tour & Excursion Cards — Immersive, Conversion-Focused
 
-# Bo Voyages — Editorial Luxury Redesign
+Redesign the cards in **Signature Circuits** (home + Tours page) and **Day Excursions** (home + Excursions page) into cinematic, image-forward "poster" cards with overlay metadata, richer motion, and stronger conversion cues — without the tilt/parallax movement on hover.
 
-A premium, full multi-page travel booking site grounded in Bo Voyages' real content (tours, excursions, transfers, prices, brand). Editorial-luxury aesthetic: large serif display headings, cinematic Morocco photography, generous whitespace, refined motion. Brand colors (blue, yellow, white) elevated with warm sand neutrals and an off-white paper background. Trilingual EN/FR/AR with full RTL support.
+## Card redesign — visual
 
-## Brand & design system
-- **Palette (HSL tokens in `index.css`)**: deep brand blue, saffron yellow accent, ivory/paper background, sand neutrals, charcoal ink. Semantic tokens for surfaces, borders, muted text, accents — no hard-coded colors in components.
-- **Type**: Display serif (e.g. Fraunces / Cormorant) for headlines; clean sans (Inter) for UI/body; Arabic-aware fallback for AR.
-- **Motion**: subtle fade/slide-in on scroll, parallax hero, magnetic buttons, image reveal masks, animated underline links, smooth route transitions. Respects `prefers-reduced-motion`.
-- **Components**: shared Header (transparent → solid on scroll, language switcher, sticky CTA), Footer, premium Card, Badge, PriceTag, Stepper, Trust strip.
+**Tour cards (Signature Circuits)**
 
-## Pages & journey
+- Taller cinematic aspect (4/5 → 3/4 on home, full-bleed image fills card).
+- City + duration **moved on top of the image** as floating chips:
+  - Top-left: city pill (glass, blurred, ivory text).
+  - Top-right: duration pill (saffron accent, e.g. "12 days").
+- Bottom gradient scrim (transparent → deep blue/black) for legibility.
+- Title + blurb sit **over the image** at the bottom in white serif.
+- Price row: large saffron price, "from / per person" small caps, and a circular arrow CTA button that subtly pulses.
+- Optional ribbon for "Bestseller" / "New" / "Limited dates" on top tours (Grand Tour, Imperial Cities) — drives urgency.
 
-1. **Home** — cinematic hero with Morocco imagery + integrated quick-search (Tours / Excursions / Transfers tabs, From → To, date, passengers). Trust strip (35+ years, 1000+ travelers, 25+ circuits). "Popular Tours" carousel, "Signature Excursions" grid, "Transfer fleet preview" (Minibus 7p · Minibus 10p · Coach 25p · Coach 48p with real prices), testimonials, editorial "Discover Morocco" storytelling block, newsletter, CTA.
-2. **Tours** (list + detail) — filterable grid by departure city (Casablanca, Marrakech…) and duration. Detail page: hero gallery, itinerary timeline, inclusions, price card sticky on desktop, "Request this tour" CTA. Real prices preserved (Grand Tour $875.34, Imperial Cities $628.60, Pearl of the South $699.10, Jewel of the North $722.60, etc.).
-3. **Excursions** (list + detail) — same pattern, real items and prices (Immouzer $35.25, Massa 4x4 $76.37, Tafraout & Tiznit $49.35, Tiout & Taroudant $52.87, Paradise Valley $32.31, Medina & Calèche $32.31, Crocoparc $21.15, Berber Massage $41.12).
-4. **Transfers** — searchable route picker → vehicle comparison grid (Minibus 7p $49.35 · Minibus 10p $84.60 · Coach 25p $155.09 · Coach 48p $211.49) with capacity, luggage, features and clear "Best for" labels. "Compare vehicles" toggle.
-5. **Booking flow (request-based)** — 3-step stepper:
-   1. Trip details (service type, route/tour, date, passengers)
-   2. Vehicle / option selection with live price summary sidebar
-   3. Contact details + special requests → submit → branded confirmation page with reference number, WhatsApp + email follow-up CTAs.
-6. **About** — brand story, 35+ years heritage, team, values, gallery.
-7. **Contact** — form, WhatsApp deep link, phone, address, embedded map, hours.
-8. **404** — branded.
+**Excursion cards (Day Excursions)**
 
-## Booking backend (Lovable Cloud)
-- `bookings` table: id, ref, service_type, tour_id?, route_from, route_to, vehicle?, date, passengers, name, email, phone, language, notes, status, created_at. RLS: insert open to anon (rate-limited via edge function), select restricted.
-- Edge function `submit-booking`: validates with zod (lengths, email, phone), generates human-readable reference (e.g. `BV-7K3X`), stores row, optionally triggers email.
-- All forms: zod schema client + server, length caps, sanitized inputs, `encodeURIComponent` for WhatsApp links.
+- Square → 4/5 poster format, image full-bleed.
+- Top-left: duration chip ("Half day" / "Full day") in glass style.
+- Top-right: small saffron price tag (always visible, easy to compare).
+- Bottom: serif title + one-line blurb over gradient scrim.
+- Hover reveals a "View experience →" pill sliding up from the bottom.
 
-## i18n & RTL
-- `react-i18next` with EN/FR/AR JSON dictionaries (UI strings + content for tours/excursions/transfers).
-- Language switcher in header, persisted in `localStorage`, syncs `<html lang>` and `dir="rtl"` for AR.
-- Tailwind logical properties (`ms-*`, `me-*`, `ps-*`) and RTL-aware layout for nav, cards, stepper, carousels.
+## Motion (no tilt, no card movement)
 
-## Performance, SEO, accessibility
-- Route-level code splitting, lazy images with blur placeholders, preloaded hero, font subset.
-- Per-page `<title>`, meta description, OpenGraph, JSON-LD (`TravelAgency`, `TouristTrip`, `Offer` with real prices), hreflang for `/en` `/fr` `/ar`, sitemap + robots.
-- Semantic landmarks, focus-visible rings, color contrast on brand blue/yellow checked, keyboard-navigable stepper and carousels, reduced-motion variant.
+Inspired by `reactbits.dev/tilted-card` look, but **static position** — the card itself does not translate or rotate on hover. Instead:
 
-## Out of scope (this pass)
-- Real online payment (kept as quote-request per your choice).
-- Admin dashboard for bookings (can follow in a later phase).
+- **Image-only Ken Burns**: slow scale (1 → 1.08) + 2px pan inside the mask.
+- **Scrim deepens** on hover (gradient opacity rises) so text pops more.
+- **Sheen sweep**: a soft diagonal light gradient sweeps across the image once on hover (1s).
+- **Chips lift**: city/duration chips fade-up 4px on hover.
+- **CTA pill reveal**: bottom "View →" pill slides up from below the title.
+- **Price pulse**: saffron price gets a one-time subtle glow on card enter-viewport.
+- **Stagger reveal on scroll**: cards fade-up sequentially (50ms stagger) using existing `useReveal` + a new `.stagger-*` delay utility.
+- **Focus-visible ring** in saffron for keyboard users.
+- All motion respects `prefers-reduced-motion` (already handled globally).
+
+## Readability & trust upgrades
+
+- WCAG-AA contrast: bottom scrim from `hsl(220 40% 8% / 0)` → `hsl(220 40% 8% / 0.85)`, white text + `text-shadow` for safety on bright photos.
+- Consistent chip system (glass, 12px uppercase tracked) used across both card types.
+- Price always top-right on excursions and bottom on tours — predictable scanning.
+- Number of highlights/dot-separator on tours ("Atlas · Sahara · Fes") under title for instant value.
+
+## Conversion ideas (recommendations)
+
+1. **Urgency ribbon** on 1–2 tours: "Most booked" (Grand Tour), "Selling fast" (Imperial Cities).
+2. **Social proof** micro-line under price: "★ 4.9 · 120+ travelers" (config-driven, optional per item).
+3. **Quick "Request quote" shortcut** on hover — secondary text link beside main arrow, deep-linking into `/booking?tour=<slug>`.
+4. **"Save / wishlist" heart** in top-right corner (localStorage-only, no backend) so visitors can shortlist on mobile.
+5. **"From" price anchoring** — show original/strikethrough only if a real promo exists; otherwise just "from $XXX" (no fake discounts — keeps trust).
+6. Ribbon copy is i18n-driven (EN/FR/AR keys).
+
+## Files to change
+
+- `src/index.css` — add `.poster-card`, `.chip-glass`, `.chip-accent`, `.scrim-bottom`, `.sheen`, `.stagger-1..6` utilities; refine `.image-mask` Ken Burns.
+- `src/components/TourCard.tsx` *(new)* — reusable poster card for tours with overlay chips, ribbon, price, CTA.
+- `src/components/ExcursionCard.tsx` *(new)* — reusable poster card for excursions.
+- `src/pages/Index.tsx` — replace inline tour/excursion cards with new components, add stagger reveal.
+- `src/pages/Tours.tsx` — use `TourCard` in grid.
+- `src/pages/Excursions.tsx` — use `ExcursionCard` in grid.
+- `src/data/content.ts` — optional `badge?: 'bestseller' | 'new' | 'limited'`, `rating?`, `reviews?` fields on a couple of items.
+- `src/i18n/locales/{en,fr,ar}.json` — keys: `cards.bestseller`, `cards.selling_fast`, `cards.most_booked`, `cards.view_experience`, `cards.request_quote`, `cards.save`.
+
+## Questions for you
+
+1. **Ribbons** — want me to add "Most booked" / "Selling fast" badges on top tours, or keep cards purely editorial without urgency tags? no
+2. **Wishlist heart** — include the save-to-wishlist (localStorage) on cards, or skip? yes do it 
+3. **Ratings line** — show "★ 4.9 · 120+ travelers" under price (you provide real numbers later), or omit until real reviews exist? omit it   
+4. make everything more readable i mean spationly on those sections and make the price Bald 
+
+Reply with answers (or "go ahead with all") and I'll implement.
