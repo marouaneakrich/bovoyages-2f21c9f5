@@ -287,42 +287,31 @@
   }
   .poster-card:hover .chip-accent { transform: translateY(-2px); }
 
-  /* Wishlist heart */
-  .wishlist-btn {
-    @apply absolute z-20 inline-flex h-10 w-10 items-center justify-center rounded-full;
-    top: 0.9rem;
-    right: 0.9rem;
-    background: hsl(0 0% 100% / 0.85);
-    color: hsl(var(--foreground));
-    backdrop-filter: blur(10px);
-    box-shadow: 0 6px 16px -6px hsl(220 40% 12% / 0.35);
-    transition: transform 0.3s var(--transition-base), background 0.3s, color 0.3s;
-  }
-  .wishlist-btn:hover { transform: scale(1.08); }
-  .wishlist-btn[data-saved="true"] {
-    background: hsl(var(--accent));
-    color: hsl(var(--accent-foreground));
-  }
-  html[dir="rtl"] .wishlist-btn { right: auto; left: 0.9rem; }
-
-  /* CTA pill that slides up on hover */
+  /* CTA pill — visible on mobile/tablet, animates on hover for desktop */
   .cta-pill {
-    @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em];
+    @apply inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.14em];
     background: hsl(var(--accent));
     color: hsl(var(--accent-foreground));
-    transform: translateY(8px);
-    opacity: 0;
-    transition: transform 0.5s var(--transition-base), opacity 0.4s;
-  }
-  .poster-card:hover .cta-pill,
-  .poster-card:focus-visible .cta-pill {
     transform: translateY(0);
     opacity: 1;
+    transition: transform 0.5s var(--transition-base), opacity 0.4s;
+  }
+  /* Hide-reveal effect only for hover-capable devices (desktop) */
+  @media (hover: hover) and (pointer: fine) {
+    .cta-pill {
+      transform: translateY(8px);
+      opacity: 0;
+    }
+    .poster-card:hover .cta-pill,
+    .poster-card:focus-visible .cta-pill {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
   /* Bold price emphasis on cards */
   .price-bold {
-    @apply font-serif text-3xl md:text-[2rem] font-bold leading-none tracking-tight text-white;
+    @apply font-serif text-2xl sm:text-3xl md:text-[2rem] font-bold leading-none tracking-tight text-white;
     text-shadow: 0 2px 14px hsl(220 40% 6% / 0.55);
   }
   .price-bold-ink {
