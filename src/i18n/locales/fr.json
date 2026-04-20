@@ -165,5 +165,10 @@
     "privacy": "Confidentialité",
     "tagline": "Voyages haut de gamme & transferts privés au Maroc — depuis 1989."
   },
-  "lang": { "en": "English", "fr": "Français", "ar": "العربية" }
+  "lang": { "en": "English", "fr": "Français", "ar": "العربية" },
+  "cards": {
+    "view_experience": "Voir l'expérience",
+    "save": "Ajouter aux favoris",
+    "saved": "Enregistré"
+  }
 }

@@ -169,5 +169,10 @@
     "privacy": "Privacy",
     "tagline": "Premium travel & private transfers across Morocco — since 1989."
   },
-  "lang": { "en": "English", "fr": "Français", "ar": "العربية" }
+  "lang": { "en": "English", "fr": "Français", "ar": "العربية" },
+  "cards": {
+    "view_experience": "View experience",
+    "save": "Save to wishlist",
+    "saved": "Saved"
+  }
 }

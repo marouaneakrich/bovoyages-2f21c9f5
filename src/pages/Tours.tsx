@@ -1,10 +1,10 @@
 import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { TOURS } from "@/data/content";
-import PriceTag from "@/components/PriceTag";
 import SEO from "@/components/SEO";
 import PageHero from "@/components/PageHero";
+import TourCard from "@/components/TourCard";
+import { useReveal } from "@/hooks/useReveal";
 import { cn } from "@/lib/utils";
 
 const Tours = () => {
@@ -47,29 +47,24 @@ const Tours = () => {
           </div>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((tour) => (
-            <Link key={tour.slug} to={`/tours/${tour.slug}`} className="premium-card group">
-              <div className="image-mask aspect-[4/5] bg-secondary">
-                <img src={tour.image} alt={tour.name} loading="lazy" className="h-full w-full object-cover" />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                  <span>{tour.city}</span>
-                  <span>{tour.days} {t("tours.days")}</span>
-                </div>
-                <h3 className="mt-3 font-serif text-2xl font-medium leading-tight">{tour.name}</h3>
-                <p className="mt-3 line-clamp-2 text-sm text-muted-foreground">{tour.blurb}</p>
-                <div className="mt-5 flex items-end justify-between">
-                  <PriceTag price={tour.price} prefix={t("tours.from_price")} suffix={t("tours.per_person")} size="sm" />
-                  <span className="link-underline text-sm font-medium">{t("tours.view")} →</span>
-                </div>
-              </div>
-            </Link>
+        <div className="grid gap-7 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {filtered.map((tour, i) => (
+            <RevealItem key={tour.slug} delay={i}>
+              <TourCard tour={tour} />
+            </RevealItem>
           ))}
         </div>
       </section>
     </>
+  );
+};
+
+const RevealItem = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => {
+  const ref = useReveal<HTMLDivElement>();
+  return (
+    <div ref={ref} className={`reveal stagger-${Math.min((delay % 6) + 1, 6)}`}>
+      {children}
+    </div>
   );
 };
 

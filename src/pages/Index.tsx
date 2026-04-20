@@ -6,6 +6,8 @@ import SEO from "@/components/SEO";
 import HeroSearch from "@/components/HeroSearch";
 import { TOURS, EXCURSIONS, VEHICLES, IMAGES } from "@/data/content";
 import PriceTag from "@/components/PriceTag";
+import TourCard from "@/components/TourCard";
+import ExcursionCard from "@/components/ExcursionCard";
 import hero from "@/assets/hero-atlas.jpg";
 
 const Index = () => {
@@ -100,71 +102,46 @@ const Index = () => {
       </section>
 
       {/* TOURS */}
-      <section className="py-20 md:py-28">
+      <section className="py-24 md:py-32">
         <div className="container-luxe">
           <div ref={r1} className="reveal flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <div className="max-w-2xl">
               <span className="eyebrow">{t("sections.tours_eyebrow")}</span>
-              <h2 className="display-2 mt-4">{t("sections.tours_title")}</h2>
+              <h2 className="display-2 mt-5">{t("sections.tours_title")}</h2>
             </div>
             <Link to="/tours" className="link-underline text-sm font-medium">
               {t("sections.tours_cta")} →
             </Link>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {TOURS.slice(0, 3).map((tour) => (
-              <Link key={tour.slug} to={`/tours/${tour.slug}`} className="premium-card group">
-                <div className="image-mask aspect-[4/5] bg-secondary">
-                  <img src={tour.image} alt={tour.name} loading="lazy" className="h-full w-full object-cover" />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                    <span>{tour.city}</span>
-                    <span>{tour.days} {t("tours.days")}</span>
-                  </div>
-                  <h3 className="mt-3 font-serif text-2xl font-medium leading-tight">{tour.name}</h3>
-                  <p className="mt-3 line-clamp-2 text-sm text-muted-foreground">{tour.blurb}</p>
-                  <div className="mt-5 flex items-end justify-between">
-                    <PriceTag price={tour.price} prefix={t("tours.from_price")} suffix={t("tours.per_person")} size="sm" />
-                    <span className="text-sm font-medium text-foreground link-underline">{t("tours.view")} →</span>
-                  </div>
-                </div>
-              </Link>
+          <div className="mt-14 grid gap-7 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {TOURS.slice(0, 3).map((tour, i) => (
+              <RevealCard key={tour.slug} delay={i}>
+                <TourCard tour={tour} />
+              </RevealCard>
             ))}
           </div>
         </div>
       </section>
 
       {/* EXCURSIONS */}
-      <section className="bg-secondary/40 py-20 md:py-28">
+      <section className="bg-secondary/40 py-24 md:py-32">
         <div className="container-luxe">
           <div ref={r2} className="reveal flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <div className="max-w-2xl">
               <span className="eyebrow">{t("sections.excursions_eyebrow")}</span>
-              <h2 className="display-2 mt-4">{t("sections.excursions_title")}</h2>
+              <h2 className="display-2 mt-5">{t("sections.excursions_title")}</h2>
             </div>
             <Link to="/excursions" className="link-underline text-sm font-medium">
               {t("sections.excursions_cta")} →
             </Link>
           </div>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {EXCURSIONS.slice(0, 4).map((ex) => (
-              <Link key={ex.slug} to={`/excursions/${ex.slug}`} className="group block">
-                <div className="image-mask aspect-square overflow-hidden rounded-2xl bg-card">
-                  <img src={ex.image} alt={ex.name} loading="lazy" className="h-full w-full object-cover" />
-                </div>
-                <div className="mt-4 flex items-start justify-between gap-3">
-                  <div>
-                    <h3 className="font-serif text-lg font-medium leading-tight">{ex.name}</h3>
-                    <p className="mt-1 text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                      {t(`excursions.${ex.duration}`)}
-                    </p>
-                  </div>
-                  <PriceTag price={ex.price} size="sm" />
-                </div>
-              </Link>
+          <div className="mt-14 grid gap-6 md:gap-7 sm:grid-cols-2 lg:grid-cols-4">
+            {EXCURSIONS.slice(0, 4).map((ex, i) => (
+              <RevealCard key={ex.slug} delay={i}>
+                <ExcursionCard ex={ex} />
+              </RevealCard>
             ))}
           </div>
         </div>
@@ -259,6 +236,15 @@ const Index = () => {
         </div>
       </section>
     </>
+  );
+};
+
+const RevealCard = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => {
+  const ref = useReveal<HTMLDivElement>();
+  return (
+    <div ref={ref} className={`reveal stagger-${Math.min(delay + 1, 6)}`}>
+      {children}
+    </div>
   );
 };
 
