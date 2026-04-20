@@ -239,4 +239,13 @@ const Index = () => {
   );
 };
 
+const RevealCard = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => {
+  const ref = useReveal<HTMLDivElement>();
+  return (
+    <div ref={ref} className={`reveal stagger-${Math.min(delay + 1, 6)}`}>
+      {children}
+    </div>
+  );
+};
+
 export default Index;

@@ -161,5 +161,10 @@
     "privacy": "الخصوصية",
     "tagline": "سفر فاخر ونقل خاص في المغرب — منذ 1989."
   },
-  "lang": { "en": "English", "fr": "Français", "ar": "العربية" }
+  "lang": { "en": "English", "fr": "Français", "ar": "العربية" },
+  "cards": {
+    "view_experience": "اكتشف التجربة",
+    "save": "أضف للمفضلة",
+    "saved": "محفوظ"
+  }
 }
