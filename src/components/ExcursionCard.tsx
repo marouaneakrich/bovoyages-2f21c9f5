@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { ArrowRight, Heart } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Excursion, CURRENCY } from "@/data/content";
-import { useWishlist } from "@/hooks/useWishlist";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -12,7 +11,6 @@ type Props = {
 
 const ExcursionCard = ({ ex, className }: Props) => {
   const { t } = useTranslation();
-  const { saved, toggle } = useWishlist(`ex:${ex.slug}`);
 
   return (
     <Link
@@ -33,19 +31,8 @@ const ExcursionCard = ({ ex, className }: Props) => {
         <div className="scrim-bottom" />
       </div>
 
-      {/* Wishlist */}
-      <button
-        type="button"
-        onClick={toggle}
-        data-saved={saved}
-        aria-label={saved ? t("cards.saved") : t("cards.save")}
-        className="wishlist-btn"
-      >
-        <Heart className={cn("h-4 w-4 transition-transform", saved && "fill-current scale-110")} />
-      </button>
-
       {/* Top chips: duration left, price right */}
-      <div className="absolute inset-x-0 top-0 z-10 flex items-start justify-between p-4">
+      <div className="absolute inset-x-0 top-0 z-10 flex items-start justify-between gap-2 p-3 sm:p-4">
         <span className="chip-glass">{t(`excursions.${ex.duration}`)}</span>
         <span className="chip-accent">
           {CURRENCY}
@@ -54,15 +41,15 @@ const ExcursionCard = ({ ex, className }: Props) => {
       </div>
 
       {/* Bottom overlay content */}
-      <div className="absolute inset-x-0 bottom-0 z-10 p-5 text-white">
-        <h3 className="font-serif text-xl md:text-[1.4rem] font-medium leading-tight text-shadow-poster">
+      <div className="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-5 text-white">
+        <h3 className="font-serif text-lg sm:text-xl md:text-[1.4rem] font-medium leading-tight text-shadow-poster">
           {ex.name}
         </h3>
-        <p className="mt-2 line-clamp-2 text-[13px] leading-relaxed text-white/85 text-shadow-poster">
+        <p className="mt-1.5 sm:mt-2 line-clamp-2 text-[12px] sm:text-[13px] leading-relaxed text-white/85 text-shadow-poster">
           {ex.blurb}
         </p>
 
-        <div className="mt-4 flex items-center justify-between">
+        <div className="mt-3 sm:mt-4 flex items-center justify-between">
           <span className="cta-pill">
             {t("cards.view_experience")}
             <ArrowRight className="h-3.5 w-3.5 rtl:rotate-180" />
