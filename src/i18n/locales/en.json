@@ -1,0 +1,173 @@
+{
+  "brand": { "name": "Bo Voyages", "tagline": "The art of travelling Morocco" },
+  "nav": {
+    "home": "Home",
+    "tours": "Tours",
+    "excursions": "Excursions",
+    "transfers": "Transfers",
+    "about": "About",
+    "contact": "Contact",
+    "book": "Request a quote"
+  },
+  "hero": {
+    "eyebrow": "Since 1989 · Morocco",
+    "title": "Morocco, ",
+    "title_em": "discovered slowly.",
+    "subtitle": "Curated tours, signature excursions and premium private transfers across the Kingdom — with a team that has been guiding travellers for over 35 years.",
+    "cta_primary": "Plan my journey",
+    "cta_secondary": "Browse tours"
+  },
+  "search": {
+    "tabs": { "tours": "Tours", "excursions": "Excursions", "transfers": "Transfers" },
+    "from": "From",
+    "to": "To",
+    "date": "Date",
+    "passengers": "Passengers",
+    "service": "Service",
+    "search": "Get a quote",
+    "any": "Any city"
+  },
+  "trust": {
+    "years": "Years guiding travellers",
+    "travelers": "Happy travellers",
+    "circuits": "Curated circuits",
+    "rating": "Average review"
+  },
+  "sections": {
+    "tours_eyebrow": "Signature circuits",
+    "tours_title": "Multi-day tours, designed by people who live here",
+    "tours_cta": "View all tours",
+    "excursions_eyebrow": "Day excursions",
+    "excursions_title": "Half-day and full-day escapes from Agadir",
+    "excursions_cta": "All excursions",
+    "transfers_eyebrow": "Private transfers",
+    "transfers_title": "Travel between cities in comfort",
+    "transfers_subtitle": "A discreet, modern fleet — driven by experienced local chauffeurs.",
+    "transfers_cta": "Compare vehicles",
+    "story_eyebrow": "Our craft",
+    "story_title": "Travel that feels written, not booked.",
+    "story_body": "Bo Voyages was founded on a simple idea: Morocco deserves to be experienced slowly, by people who know its rhythm. From the souks of Marrakech to the dunes of the south, every itinerary is hand-shaped by our team — and every transfer is operated by drivers we know and trust.",
+    "newsletter_title": "Quiet inspiration, four times a year.",
+    "newsletter_body": "Seasonal itineraries, hidden corners, and gentle journal notes from our team. No noise.",
+    "newsletter_cta": "Subscribe"
+  },
+  "tours": {
+    "title": "Multi-day tours of Morocco",
+    "subtitle": "Hand-built circuits from 4 to 12 days, with private vehicle and driver-guide.",
+    "filter_city": "Departing from",
+    "filter_duration": "Duration",
+    "all": "All",
+    "from_price": "From",
+    "per_person": "per person",
+    "days": "days",
+    "view": "View itinerary",
+    "request": "Request this tour",
+    "highlights": "Highlights",
+    "itinerary": "Itinerary",
+    "included": "What's included",
+    "private_vehicle": "Private vehicle & driver",
+    "english_speaking": "English-speaking team",
+    "accommodation": "Selected accommodation"
+  },
+  "excursions": {
+    "title": "Day excursions from Agadir",
+    "subtitle": "Half-day and full-day escapes — perfect for adding a day of magic to any stay.",
+    "filter_duration": "Duration",
+    "half_day": "Half day",
+    "full_day": "Full day",
+    "request": "Request this excursion"
+  },
+  "transfers": {
+    "title": "Private transfers across Morocco",
+    "subtitle": "From a discreet 7-seat minibus to a 48-seat luxury coach. All prices are per vehicle, one-way.",
+    "fleet": "Our fleet",
+    "capacity": "Capacity",
+    "luggage": "Luggage",
+    "best_for": "Best for",
+    "features": "Features",
+    "request": "Request this transfer",
+    "vehicles": {
+      "minibus7": { "name": "Minibus · 7 seats", "best": "Couples & families" },
+      "minibus10": { "name": "Minibus · 10 seats", "best": "Small groups" },
+      "coach25": { "name": "Mini-coach · 25 seats", "best": "Groups & corporate" },
+      "coach48": { "name": "Coach · 48 seats", "best": "Large groups" }
+    },
+    "feat": {
+      "ac": "Climate control",
+      "wifi": "On-board Wi-Fi",
+      "water": "Bottled water",
+      "luggage": "Generous luggage",
+      "english": "English-speaking driver"
+    }
+  },
+  "booking": {
+    "title": "Request your quote",
+    "subtitle": "Three quiet steps. We reply within a few hours, in your language.",
+    "steps": {
+      "trip": "Your trip",
+      "vehicle": "Vehicle & options",
+      "contact": "Your details"
+    },
+    "service": "Service",
+    "trip_type": {
+      "tour": "Multi-day tour",
+      "excursion": "Day excursion",
+      "transfer": "Private transfer"
+    },
+    "from": "From",
+    "to": "To",
+    "date": "Travel date",
+    "passengers": "Passengers",
+    "vehicle": "Vehicle",
+    "name": "Full name",
+    "email": "Email",
+    "phone": "Phone (with country code)",
+    "notes": "Notes & special requests",
+    "next": "Continue",
+    "back": "Back",
+    "submit": "Send my request",
+    "summary": "Summary",
+    "submitting": "Sending...",
+    "select_option": "Select an option"
+  },
+  "confirmation": {
+    "title": "Thank you. Your request is in our hands.",
+    "subtitle": "We have received your request and will reply within a few hours.",
+    "ref": "Reference",
+    "next_steps": "What happens next",
+    "step_1": "Our team reviews your request and confirms availability.",
+    "step_2": "You receive a personalised quote and itinerary by email.",
+    "step_3": "Once you approve, we lock in your dates and chauffeur.",
+    "whatsapp": "Continue on WhatsApp",
+    "home": "Back to home"
+  },
+  "about": {
+    "title": "Travelling Morocco, gently.",
+    "subtitle": "Three decades of quiet expertise.",
+    "body_1": "Bo Voyages began in Agadir in 1989 with a small fleet of vehicles and a clear conviction: travel in Morocco should feel intimate, not industrial.",
+    "body_2": "Today we operate across the Kingdom — from the imperial cities of the north to the deserts of the south — with the same family approach. Every booking is met by a real person, every itinerary is shaped by hand, and every chauffeur is part of our team."
+  },
+  "contact": {
+    "title": "Talk to a real person.",
+    "subtitle": "Phone, email, or WhatsApp — we reply within a few hours.",
+    "name": "Your name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send message",
+    "phone": "Phone",
+    "address": "Address",
+    "hours": "Hours",
+    "hours_value": "Mon–Sat · 9:00 — 19:00",
+    "address_value": "Agadir, Morocco"
+  },
+  "footer": {
+    "explore": "Explore",
+    "company": "Company",
+    "legal": "Legal",
+    "rights": "All rights reserved.",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "tagline": "Premium travel & private transfers across Morocco — since 1989."
+  },
+  "lang": { "en": "English", "fr": "Français", "ar": "العربية" }
+}
