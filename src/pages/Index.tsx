@@ -245,6 +245,11 @@ const Index = () => {
         </div>
       </section>
 
+      </section>
+
+      {/* WHY TRAVEL WITH US */}
+      <Pillars />
+
       {/* STORY — Our craft */}
       <section className="relative overflow-hidden bg-primary py-20 text-primary-foreground md:py-28 lg:py-32">
         {/* decorative grain / glow */}
@@ -321,6 +326,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* TESTIMONIALS */}
+      <Testimonials />
 
       {/* NEWSLETTER */}
       <section ref={r5} className="reveal py-20 md:py-28">
