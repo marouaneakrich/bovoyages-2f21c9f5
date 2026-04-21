@@ -8,6 +8,11 @@ import { TOURS, EXCURSIONS, VEHICLES, IMAGES } from "@/data/content";
 import PriceTag from "@/components/PriceTag";
 import TourCard from "@/components/TourCard";
 import ExcursionCard from "@/components/ExcursionCard";
+import SplitText from "@/components/SplitText";
+import MagneticButton from "@/components/MagneticButton";
+import Marquee from "@/components/Marquee";
+import Pillars from "@/components/sections/Pillars";
+import Testimonials from "@/components/sections/Testimonials";
 import hero from "@/assets/hero-atlas.jpg";
 
 const Index = () => {
