@@ -108,6 +108,13 @@ const Index = () => {
         </div>
       </section>
 
+      {/* DESTINATION MARQUEE */}
+      <section className="border-b border-border bg-background py-6 sm:py-8">
+        <Marquee
+          items={["Marrakech", "Essaouira", "Fes", "Chefchaouen", "Sahara", "Atlas", "Agadir", "Casablanca", "Tangier", "Merzouga"]}
+        />
+      </section>
+
       {/* TOURS */}
       <section className="py-20 md:py-28 lg:py-32">
         <div className="container-luxe">
