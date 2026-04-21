@@ -22,7 +22,7 @@ const PageHero = ({
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
         </>
       )}
-      <div className={cn("container-luxe relative", compact ? "pt-32 pb-12" : "pt-36 pb-20 md:pt-44 md:pb-24")}>
+      <div className={cn("container-luxe relative", compact ? "pt-24 pb-10 sm:pt-28 md:pt-32 md:pb-12" : "pt-28 pb-14 sm:pt-32 sm:pb-16 md:pt-40 md:pb-20 lg:pt-44 lg:pb-24")}>
         {eyebrow && (
           <span className={cn("eyebrow", image ? "text-primary-foreground/80 [&::before]:bg-accent" : "")}>
             {eyebrow}
@@ -30,7 +30,7 @@ const PageHero = ({
         )}
         <h1 className={cn("display-2 mt-4 max-w-3xl", image ? "text-primary-foreground" : "")}>{title}</h1>
         {subtitle && (
-          <p className={cn("mt-5 max-w-2xl text-base md:text-lg", image ? "text-primary-foreground/85" : "text-muted-foreground")}>
+          <p className={cn("mt-4 max-w-2xl text-sm leading-relaxed sm:text-base md:mt-5 md:text-lg", image ? "text-primary-foreground/85" : "text-muted-foreground")}>
             {subtitle}
           </p>
         )}
