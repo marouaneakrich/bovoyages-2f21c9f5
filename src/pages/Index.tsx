@@ -49,7 +49,7 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/70" />
         </div>
 
-        <div className="container-luxe relative flex min-h-[100svh] flex-col justify-end pb-12 pt-32 text-primary-foreground md:pb-20">
+        <div className="container-luxe relative flex min-h-[100svh] flex-col justify-end pb-8 pt-28 text-primary-foreground sm:pt-32 md:pb-20">
           <div className="max-w-3xl animate-fade-in-up">
             <span className="eyebrow text-primary-foreground/80 [&::before]:bg-accent">
               {t("hero.eyebrow")}
@@ -78,7 +78,7 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="mt-12 md:mt-16">
+          <div className="mt-8 sm:mt-12 md:mt-16">
             <HeroSearch />
           </div>
         </div>
@@ -86,7 +86,7 @@ const Index = () => {
 
       {/* TRUST STRIP */}
       <section className="border-y border-border bg-background">
-        <div className="container-luxe grid grid-cols-2 gap-8 py-10 md:grid-cols-4">
+        <div className="container-luxe grid grid-cols-2 gap-6 py-8 sm:gap-8 sm:py-10 md:grid-cols-4">
           {[
             { v: "35+", k: "trust.years" },
             { v: "10k+", k: "trust.travelers" },
@@ -94,8 +94,8 @@ const Index = () => {
             { v: "4.9★", k: "trust.rating" },
           ].map((s) => (
             <div key={s.k} className="text-center md:text-start">
-              <div className="font-serif text-4xl font-medium text-foreground md:text-5xl">{s.v}</div>
-              <div className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">{t(s.k)}</div>
+              <div className="font-serif text-3xl font-medium text-foreground sm:text-4xl md:text-5xl">{s.v}</div>
+              <div className="mt-1 text-[10px] uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">{t(s.k)}</div>
             </div>
           ))}
         </div>
