@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { lazy, Suspense } from "react";
 import SiteLayout from "./components/SiteLayout";
+import LoadingScreen from "./components/LoadingScreen";
 import Index from "./pages/Index";
 
 const Tours = lazy(() => import("./pages/Tours"));
@@ -31,6 +32,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <LoadingScreen />
       <BrowserRouter>
         <Suspense fallback={<Loader />}>
           <Routes>

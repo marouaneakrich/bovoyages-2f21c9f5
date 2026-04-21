@@ -2,6 +2,9 @@ import { Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import CustomCursor from "./CustomCursor";
+import SideRails from "./SideRails";
+import RouteTransition from "./RouteTransition";
 
 const SiteLayout = () => {
   const { pathname } = useLocation();
@@ -11,6 +14,9 @@ const SiteLayout = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <CustomCursor />
+      <SideRails />
+      <RouteTransition />
       <Header />
       <main className="flex-1">
         <Outlet />

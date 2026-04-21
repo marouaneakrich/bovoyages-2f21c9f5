@@ -8,6 +8,11 @@ import { TOURS, EXCURSIONS, VEHICLES, IMAGES } from "@/data/content";
 import PriceTag from "@/components/PriceTag";
 import TourCard from "@/components/TourCard";
 import ExcursionCard from "@/components/ExcursionCard";
+import SplitText from "@/components/SplitText";
+import MagneticButton from "@/components/MagneticButton";
+import Marquee from "@/components/Marquee";
+import Pillars from "@/components/sections/Pillars";
+import Testimonials from "@/components/sections/Testimonials";
 import hero from "@/assets/hero-atlas.jpg";
 
 const Index = () => {
@@ -101,6 +106,13 @@ const Index = () => {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* DESTINATION MARQUEE */}
+      <section className="border-b border-border bg-background py-6 sm:py-8">
+        <Marquee
+          items={["Marrakech", "Essaouira", "Fes", "Chefchaouen", "Sahara", "Atlas", "Agadir", "Casablanca", "Tangier", "Merzouga"]}
+        />
       </section>
 
       {/* TOURS */}
@@ -233,6 +245,10 @@ const Index = () => {
         </div>
       </section>
 
+
+      {/* WHY TRAVEL WITH US */}
+      <Pillars />
+
       {/* STORY — Our craft */}
       <section className="relative overflow-hidden bg-primary py-20 text-primary-foreground md:py-28 lg:py-32">
         {/* decorative grain / glow */}
@@ -309,6 +325,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* TESTIMONIALS */}
+      <Testimonials />
 
       {/* NEWSLETTER */}
       <section ref={r5} className="reveal py-20 md:py-28">
