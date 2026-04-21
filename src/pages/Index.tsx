@@ -245,7 +245,6 @@ const Index = () => {
         </div>
       </section>
 
-      </section>
 
       {/* WHY TRAVEL WITH US */}
       <Pillars />
