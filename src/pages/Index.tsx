@@ -303,9 +303,6 @@ const Index = () => {
                   <div className="font-serif text-sm text-white">The blue pearl</div>
                 </div>
               </div>
-
-              {/* Decorative accent dot */}
-              <div aria-hidden className="absolute -right-3 -top-3 h-16 w-16 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-sm sm:-right-5 sm:-top-5 sm:h-20 sm:w-20" />
             </div>
           </div>
         </div>
