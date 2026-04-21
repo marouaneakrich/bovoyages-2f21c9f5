@@ -24,14 +24,14 @@ const HeroSearch = () => {
   });
 
   return (
-    <div className="rounded-2xl border border-primary-foreground/15 bg-card/95 p-2 shadow-elegant backdrop-blur-sm md:rounded-full md:p-2">
-      <div className="flex flex-wrap items-center gap-1 px-3 pt-1 md:px-2">
+    <div className="rounded-2xl border border-primary-foreground/15 bg-card/95 p-1.5 shadow-elegant backdrop-blur-sm sm:p-2 md:rounded-[2rem]">
+      <div className="flex flex-wrap items-center gap-1 px-2 pt-1 sm:px-3 md:px-2">
         {(["tours", "excursions", "transfers"] as Tab[]).map((tk) => (
           <button
             key={tk}
             onClick={() => setTab(tk)}
             className={cn(
-              "rounded-full px-4 py-1.5 text-xs font-medium uppercase tracking-wider transition-colors",
+              "rounded-full px-3 py-1.5 text-[11px] font-medium uppercase tracking-wider transition-colors sm:px-4 sm:text-xs",
               tab === tk
                 ? "bg-primary text-primary-foreground"
                 : "text-muted-foreground hover:bg-secondary"
@@ -63,7 +63,7 @@ const HeroSearch = () => {
         </Field>
         <Link
           to={`/booking?${params.toString()}`}
-          className="flex items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent/90 md:rounded-full"
+          className="flex items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3.5 text-sm font-semibold text-accent-foreground transition-all hover:bg-accent/90 hover:shadow-lg sm:col-span-2 md:col-span-1 md:rounded-full"
         >
           <Search className="h-4 w-4" />
           {t("search.search")}
@@ -74,11 +74,11 @@ const HeroSearch = () => {
 };
 
 const Field = ({ icon, label, children }: { icon: React.ReactNode; label: string; children: React.ReactNode }) => (
-  <label className="flex items-center gap-3 rounded-xl px-4 py-2.5 hover:bg-secondary md:rounded-full">
+  <label className="flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-secondary sm:px-4 md:rounded-full">
     <span className="text-accent">{icon}</span>
-    <span className="flex flex-col">
+    <span className="flex min-w-0 flex-1 flex-col">
       <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">{label}</span>
-      <span className="-mt-0.5 text-sm font-medium text-foreground">{children}</span>
+      <span className="-mt-0.5 truncate text-sm font-medium text-foreground">{children}</span>
     </span>
   </label>
 );
