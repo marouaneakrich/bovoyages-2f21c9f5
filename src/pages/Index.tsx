@@ -45,6 +45,8 @@ const Index = () => {
             className="h-full w-full object-cover animate-ken-burns"
             width={1920}
             height={1080}
+            decoding="async"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/70" />
         </div>
