@@ -30,24 +30,28 @@ const Tours = () => {
       <SEO title={`${t("tours.title")} — Bo Voyages`} description={t("tours.subtitle")} />
       <PageHero eyebrow={t("sections.tours_eyebrow")} title={t("tours.title")} subtitle={t("tours.subtitle")} />
 
-      <section className="container-luxe py-14">
-        <div className="mb-10 flex flex-wrap items-center gap-6 border-b border-border pb-6">
-          <div className="flex items-center gap-3">
-            <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{t("tours.filter_city")}</span>
-            <Pill active={city === "all"} onClick={() => setCity("all")}>{t("tours.all")}</Pill>
-            {cities.map((c) => (
-              <Pill key={c} active={city === c} onClick={() => setCity(c)}>{c}</Pill>
-            ))}
+      <section className="container-luxe py-10 md:py-14">
+        <div className="mb-8 space-y-4 border-b border-border pb-5 md:mb-10 md:pb-6">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+            <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">{t("tours.filter_city")}</span>
+            <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 [&::-webkit-scrollbar]:hidden">
+              <Pill active={city === "all"} onClick={() => setCity("all")}>{t("tours.all")}</Pill>
+              {cities.map((c) => (
+                <Pill key={c} active={city === c} onClick={() => setCity(c)}>{c}</Pill>
+              ))}
+            </div>
           </div>
-          <div className="flex items-center gap-3">
-            <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{t("tours.filter_duration")}</span>
-            {durations.map((d) => (
-              <Pill key={d.key} active={duration === d.key} onClick={() => setDuration(d.key)}>{d.label}</Pill>
-            ))}
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+            <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">{t("tours.filter_duration")}</span>
+            <div className="flex flex-wrap gap-2">
+              {durations.map((d) => (
+                <Pill key={d.key} active={duration === d.key} onClick={() => setDuration(d.key)}>{d.label}</Pill>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="grid gap-7 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 sm:gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((tour, i) => (
             <RevealItem key={tour.slug} delay={i}>
               <TourCard tour={tour} />
@@ -72,7 +76,7 @@ const Pill = ({ active, onClick, children }: { active?: boolean; onClick?: () =>
   <button
     onClick={onClick}
     className={cn(
-      "rounded-full border px-3.5 py-1.5 text-xs font-medium transition-colors",
+      "shrink-0 whitespace-nowrap rounded-full border px-3.5 py-2 text-xs font-medium transition-colors",
       active ? "border-primary bg-primary text-primary-foreground" : "border-border text-foreground/70 hover:bg-secondary"
     )}
   >

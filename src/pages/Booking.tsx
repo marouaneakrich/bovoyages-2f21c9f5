@@ -83,26 +83,26 @@ const Booking = () => {
       <SEO title={`${t("booking.title")} — Bo Voyages`} description={t("booking.subtitle")} />
       <PageHero eyebrow="" title={t("booking.title")} subtitle={t("booking.subtitle")} compact />
 
-      <section className="container-luxe grid gap-10 py-12 lg:grid-cols-12">
+      <section className="container-luxe grid gap-8 py-10 md:py-12 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-8">
           {/* Stepper */}
-          <ol className="mb-10 grid grid-cols-3 gap-2">
+          <ol className="mb-8 grid grid-cols-3 gap-2 md:mb-10">
             {steps.map((label, i) => (
-              <li key={i} className="flex items-center gap-3">
+              <li key={i} className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-3">
                 <span className={cn(
                   "flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-medium",
                   i < step ? "bg-accent text-accent-foreground" : i === step ? "bg-primary text-primary-foreground" : "bg-secondary text-muted-foreground"
                 )}>
                   {i < step ? <Check className="h-4 w-4" /> : i + 1}
                 </span>
-                <span className={cn("text-xs uppercase tracking-[0.16em]", i === step ? "text-foreground" : "text-muted-foreground")}>
+                <span className={cn("text-[10px] uppercase tracking-[0.14em] sm:text-xs sm:tracking-[0.16em]", i === step ? "text-foreground" : "text-muted-foreground")}>
                   {label}
                 </span>
               </li>
             ))}
           </ol>
 
-          <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
+          <div className="rounded-2xl border border-border bg-card p-5 sm:p-6 md:p-8">
             {step === 0 && (
               <div className="space-y-6">
                 <Field label={t("booking.service")}>
@@ -146,14 +146,14 @@ const Booking = () => {
                   <div className="grid gap-3">
                     {VEHICLES.map((v) => (
                       <label key={v.slug} className={cn(
-                        "flex cursor-pointer items-center gap-4 rounded-xl border p-4 transition-colors",
+                        "flex cursor-pointer items-center gap-3 rounded-xl border p-3 transition-colors sm:gap-4 sm:p-4",
                         form.vehicle === v.slug ? "border-primary bg-primary/5" : "border-border hover:bg-secondary"
                       )}>
                         <input type="radio" name="vehicle" className="sr-only" checked={form.vehicle === v.slug} onChange={() => set("vehicle", v.slug)} />
-                        <img src={v.image} alt="" className="h-16 w-24 rounded-lg object-cover" />
-                        <div className="flex-1">
-                          <div className="font-serif text-lg font-medium">{t(`transfers.vehicles.${v.slug}.name`)}</div>
-                          <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground">{t(`transfers.vehicles.${v.slug}.best`)}</div>
+                        <img src={v.image} alt="" loading="lazy" className="h-14 w-20 shrink-0 rounded-lg object-cover sm:h-16 sm:w-24" />
+                        <div className="min-w-0 flex-1">
+                          <div className="truncate font-serif text-base font-medium sm:text-lg">{t(`transfers.vehicles.${v.slug}.name`)}</div>
+                          <div className="truncate text-[10px] uppercase tracking-[0.14em] text-muted-foreground sm:text-xs">{t(`transfers.vehicles.${v.slug}.best`)}</div>
                         </div>
                         <PriceTag price={v.price} size="sm" />
                       </label>
@@ -227,9 +227,9 @@ const Booking = () => {
 
         {/* Summary */}
         <aside className="lg:col-span-4">
-          <div className="sticky top-28 rounded-2xl border border-border bg-card p-6">
-            <h3 className="font-serif text-xl font-medium">{t("booking.summary")}</h3>
-            <dl className="mt-5 space-y-3 text-sm">
+          <div className="rounded-2xl border border-border bg-card p-5 sm:p-6 lg:sticky lg:top-28">
+            <h3 className="font-serif text-lg font-medium sm:text-xl">{t("booking.summary")}</h3>
+            <dl className="mt-4 space-y-3 text-sm sm:mt-5">
               <Row k={t("booking.service")} v={t(`booking.trip_type.${form.service}`)} />
               {form.from && <Row k={t("booking.from")} v={form.from} />}
               {form.to && <Row k={t("booking.to")} v={form.to} />}
@@ -242,7 +242,7 @@ const Booking = () => {
               {form.service === "excursion" && selectedExcursion && <Row k={t("booking.trip_type.excursion")} v={selectedExcursion.name} />}
             </dl>
             {indicativePrice !== null && (
-              <div className="mt-6 border-t border-border pt-5">
+              <div className="mt-5 border-t border-border pt-4 sm:mt-6 sm:pt-5">
                 <PriceTag price={indicativePrice} prefix={t("tours.from_price")} size="md" />
               </div>
             )}
