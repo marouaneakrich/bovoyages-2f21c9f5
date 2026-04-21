@@ -582,7 +582,6 @@
     background: hsl(var(--accent));
     margin-inline-end: 0.5rem;
   }
-}
 
 @media (prefers-reduced-motion: reduce) {
   * {
