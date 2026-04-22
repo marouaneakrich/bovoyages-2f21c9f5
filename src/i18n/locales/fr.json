@@ -49,8 +49,8 @@
     "transfers_feat_wifi": "Wi-Fi à bord",
     "transfers_feat_water": "Eau minérale",
     "transfers_feat_eng": "Chauffeur anglophone",
-    "story_eyebrow": "Notre métier",
-    "story_title": "Un voyage qui s'écrit, ne se réserve pas.",
+    "story_eyebrow": "À propos",
+    "story_title": "Qui sommes-nous.",
     "story_body": "Bo Voyages est né d'une idée simple : le Maroc mérite d'être vécu lentement, par ceux qui en connaissent le rythme. Des souks de Marrakech aux dunes du sud, chaque itinéraire est façonné à la main — et chaque transfert est assuré par un chauffeur de confiance.",
     "story_body_2": "Nous ne vendons pas de voyages tout faits. Nous vous écoutons, comprenons ce que vous aimez, puis bâtissons un itinéraire à votre rythme — riads discrets, tables familiales, le bon guide pour la bonne ville. Trois décennies plus tard, c'est toujours notre seule façon de travailler.",
     "story_stat_1_v": "35+",
@@ -62,7 +62,13 @@
     "story_cta": "Lire notre histoire",
     "newsletter_title": "Une inspiration discrète, quatre fois par an.",
     "newsletter_body": "Itinéraires de saison, lieux confidentiels et notes de voyage — sans bruit.",
-    "newsletter_cta": "S'abonner"
+    "newsletter_cta": "S'abonner",
+    "transfers_from": "À partir de",
+    "transfers_per_ride": "/ trajet aller",
+    "transfers_book": "Réserver ce transfert",
+    "transfers_trust_cancel": "Annulation gratuite 24h",
+    "transfers_trust_insured": "Flotte entièrement assurée",
+    "transfers_trust_rating": "4,9 / 5 avis voyageurs"
   },
   "tours": {
     "title": "Circuits de plusieurs jours au Maroc",
