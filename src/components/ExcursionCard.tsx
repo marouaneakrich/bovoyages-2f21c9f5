@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ArrowRight } from "lucide-react";
-import { Excursion, CURRENCY } from "@/data/content";
+import { Excursion } from "@/data/content";
 import { cn } from "@/lib/utils";
+import { useCurrency } from "@/contexts/CurrencyContext";
 
 type Props = {
   ex: Excursion;
@@ -11,6 +12,7 @@ type Props = {
 
 const ExcursionCard = ({ ex, className }: Props) => {
   const { t } = useTranslation();
+  const { format } = useCurrency();
 
   return (
     <Link
@@ -34,10 +36,7 @@ const ExcursionCard = ({ ex, className }: Props) => {
       {/* Top chips: duration left, price right */}
       <div className="absolute inset-x-0 top-0 z-10 flex items-start justify-between gap-2 p-3 sm:p-4">
         <span className="chip-glass">{t(`excursions.${ex.duration}`)}</span>
-        <span className="chip-accent">
-          {CURRENCY}
-          {ex.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-        </span>
+        <span className="chip-accent">{format(ex.price)}</span>
       </div>
 
       {/* Bottom overlay content */}

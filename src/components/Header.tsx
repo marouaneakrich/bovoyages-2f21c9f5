@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
 import LanguageSwitcher from "./LanguageSwitcher";
+import CurrencySwitcher from "./CurrencySwitcher";
 import Logo from "./Logo";
 
 const Header = () => {
@@ -63,6 +64,7 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center gap-2 md:gap-3">
+          <div className="hidden sm:block"><CurrencySwitcher light={transparent} /></div>
           <LanguageSwitcher light={transparent} />
           <Link
             to="/booking"
@@ -110,6 +112,7 @@ const Header = () => {
               {l.label}
             </RouterNavLink>
           ))}
+          <div className="mt-3 sm:hidden px-3"><CurrencySwitcher /></div>
           <Link
             to="/booking"
             className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground"

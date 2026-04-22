@@ -427,6 +427,33 @@
     100% { opacity: 1; transform: none; }
   }
   .animate-fade-in-up { animation: fade-in-up 1.1s var(--transition-base) both; }
+
+  /* ========= Excursion rail (marquee-style cards) ========= */
+  @keyframes excursion-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .excursion-track {
+    animation: excursion-scroll 70s linear infinite;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .excursion-rail:hover .excursion-track { animation-play-state: paused; }
+  }
+  /* On touch devices, allow free swipe (disable auto-scroll) */
+  @media (hover: none), (pointer: coarse) {
+    .excursion-track { animation: none; }
+  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* ========= Glass card (transfer hero) ========= */
+  .glass-card {
+    background: hsl(var(--card) / 0.72);
+    backdrop-filter: saturate(160%) blur(18px);
+    -webkit-backdrop-filter: saturate(160%) blur(18px);
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-elegant);
+  }
 }
 
   /* ========= Loading screen / bird ========= */

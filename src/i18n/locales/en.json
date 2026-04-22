@@ -49,8 +49,8 @@
     "transfers_feat_wifi": "On-board Wi-Fi",
     "transfers_feat_water": "Bottled water",
     "transfers_feat_eng": "English-speaking driver",
-    "story_eyebrow": "Our craft",
-    "story_title": "Travel that feels written, not booked.",
+    "story_eyebrow": "About us",
+    "story_title": "Who we are.",
     "story_body": "Bo Voyages was founded on a simple idea: Morocco deserves to be experienced slowly, by people who know its rhythm. From the souks of Marrakech to the dunes of the south, every itinerary is hand-shaped by our team — and every transfer is operated by drivers we know and trust.",
     "story_body_2": "We don't sell trips off a shelf. We sit with you, listen to what you love, and build a route that moves at your pace — quiet riads, family-run kitchens, the right guide for the right city. Three decades in, that's still the only way we know how to work.",
     "story_stat_1_v": "35+",
@@ -62,7 +62,13 @@
     "story_cta": "Read our story",
     "newsletter_title": "Quiet inspiration, four times a year.",
     "newsletter_body": "Seasonal itineraries, hidden corners, and gentle journal notes from our team. No noise.",
-    "newsletter_cta": "Subscribe"
+    "newsletter_cta": "Subscribe",
+    "transfers_from": "From",
+    "transfers_per_ride": "/ one-way ride",
+    "transfers_book": "Book this transfer",
+    "transfers_trust_cancel": "Free 24h cancellation",
+    "transfers_trust_insured": "Fully insured fleet",
+    "transfers_trust_rating": "4.9 / 5 traveller rating"
   },
   "tours": {
     "title": "Multi-day tours of Morocco",

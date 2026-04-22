@@ -1,8 +1,8 @@
-import { CURRENCY } from "@/data/content";
 import { cn } from "@/lib/utils";
+import { useCurrency } from "@/contexts/CurrencyContext";
 
 export const formatPrice = (n: number) =>
-  `${CURRENCY}${n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  `$${n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
 const PriceTag = ({
   price,
@@ -22,11 +22,12 @@ const PriceTag = ({
     md: "text-2xl",
     lg: "text-4xl md:text-5xl",
   } as const;
+  const { format } = useCurrency();
   return (
     <div className={cn("flex items-baseline gap-2", className)}>
       {prefix && <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{prefix}</span>}
       <span className={cn("font-serif font-medium text-foreground", sizes[size])}>
-        {formatPrice(price)}
+        {format(price)}
       </span>
       {suffix && <span className="text-xs text-muted-foreground">{suffix}</span>}
     </div>
